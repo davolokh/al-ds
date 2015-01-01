@@ -31,8 +31,23 @@
 		return input;
 	};
 
-	
+	function bubbleSort(input) {
+		var l = input.length;
+		for (var i = 0; i < l - 1; i++) {
+			for (var j = l - 1; j > i; j--) {
+				if (input[i] > input[j]) {
+					var temp = input[i];
+					input[i] = input[j];
+					input[j] = temp;
+				}
+			};
+		};
+		return input;
+	};
+
+
 
 	console.log(insertionSort(inputArray));
 	console.log(selectionSort(inputArray));
+	console.log(bubbleSort(inputArray));
 })();
