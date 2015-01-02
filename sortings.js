@@ -45,9 +45,38 @@
 		return input;
 	};
 
+	function shakerSort(input) {
+		var l = input.length,
+			left = 0,
+			right = l -1,
+			x,
+			k;
+		while (left <= right) {
+			for (var i = right; i > left; i--) {
+				if (input[i - 1] > input[i]) {
+					x = input[i - 1];
+					input[i - 1] = input[i];
+					input[i] = x;
+					k = i;
+				}
+			};
+			left = k + 1;
+			for (var i = left; i < right; i++) {
+				if (input[i - 1] > input[i]) {
+					x = input[i - 1];
+					input[i - 1] = input[i];
+					input[i] = x;
+					k = i;
+				}
+			};
+			right = k - 1;
+		};
+		return input;
+	};
 
 
 	console.log(insertionSort(inputArray));
 	console.log(selectionSort(inputArray));
 	console.log(bubbleSort(inputArray));
+	console.log(shakerSort(inputArray));
 })();
